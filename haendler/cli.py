@@ -25,9 +25,15 @@ from .suche import bestehende_kontakte, suche_gruppe
 XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
 
+AUSGESCHLOSSEN = Path("config/ausgeschlossen.txt")
+
+
 def _gruppen():
     pfad = Path(os.getenv("WARENBESTAND_CSV", "/opt/ghostwriter/data/warenbestand.csv"))
-    return gruppieren(lade_bestand(pfad))
+    raus = set()
+    if AUSGESCHLOSSEN.exists():
+        raus = {z.strip().lower() for z in AUSGESCHLOSSEN.read_text().splitlines() if z.strip() and not z.startswith("#")}
+    return [g for g in gruppieren(lade_bestand(pfad)) if g.name.lower() not in raus]
 
 
 def _mail(pfad: Path, text: str) -> None:

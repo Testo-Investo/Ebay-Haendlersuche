@@ -1,0 +1,2 @@
+# Produktgruppen, nach denen nicht gesucht wird (Marcs Anweisung im Chat), eine pro Zeile
+MAMIBOT Saugroboter & Haushalt

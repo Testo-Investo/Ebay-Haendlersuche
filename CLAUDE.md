@@ -13,6 +13,7 @@ E-Mail-Adresse, Telefonnummer** (Marcs Vorgabe, 30.10.2026).
   Entwicklerkonto, App ID/Cert ID nur in `/opt/ebay-haendlersuche/.env` (chmod 600).
 - Produktgruppen bildet Claude selbst: Marke + Kategorie (`haendler/gruppen.py`),
   sortiert nach Bestandswert. Microsoft Surface nie (wie im Ghostwriter).
+  Gruppen, die Marc nicht will, stehen in `config/ausgeschlossen.txt` (seit 30.10.: MAMIBOT).
 - Impressum-Felder (`seller.sellerLegalInfo`) stammen aus Claudes Wissen über die API,
   die Doku war aus der Cloud nicht erreichbar → beim ersten Lauf mit `probe` prüfen.
 - Marc entscheidet selbst, wie er die Händler anspricht. Claude hat auf § 7 UWG
